@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>2026 김장나눔 후기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: the recruiting page's faintly green paper and one reading column; the 250-box grid comes back filled, and each day of work is a swipeable photo strip */
+:root{
+  --paper:#f6f8f3; --card:#ffffff; --ink:#1c241e; --muted:#58645b; --line:#d6ded2;
+  --cabbage:#2c6a44; --leaf:#e1ebd9; --chili:#b5311e; --chili-soft:#f6e1dc; --gold:#FFF0BD; --gold-edge:#F2B544; --c-meal:#c9871a; --c-ops:#4f7391; --c-pack:#8a6fb0;
+  --display:"Hahmlet","Nanum Myeongjo",serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#111613; --card:#18201a; --ink:#e7ece5; --muted:#9ba79e; --line:#2b362e;
+  --cabbage:#86c59b; --leaf:#1e2b22; --chili:#ec6f57; --chili-soft:#3a201b; --gold:#5a4a12; --gold-edge:#c89a2e; --c-meal:#e0a743; --c-ops:#86a9c6; --c-pack:#b39ad6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#111613; --card:#18201a; --ink:#e7ece5; --muted:#9ba79e; --line:#2b362e;
+  --cabbage:#86c59b; --leaf:#1e2b22; --chili:#ec6f57; --chili-soft:#3a201b; --gold:#5a4a12; --gold-edge:#c89a2e; --c-meal:#e0a743; --c-ops:#86a9c6; --c-pack:#b39ad6; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+img{max-width:100%}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.3;text-wrap:balance;margin:0}
+p{margin:0}
+:focus-visible{outline:3px solid var(--chili);outline-offset:2px;border-radius:4px}
+
+.org{border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+.org .wrap{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding-block:12px}
+.org b{color:var(--cabbage);font-weight:700}
+
+/* hero */
+.hero .wrap{padding-block:22px 20px;display:grid;gap:14px}
+.eyebrow{font-family:var(--display);font-size:clamp(20px,4vw,26px);font-weight:800;color:var(--chili);line-height:1.3}
+.hero h1{font-size:clamp(26px,5.4vw,38px);font-weight:800;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--cabbage)}
+.lede{font-size:16px;color:var(--muted);max-width:36em}
+.photo{margin:0;display:grid;gap:8px}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;border-radius:12px;background:var(--leaf)}
+.photo figcaption{font-size:13px;color:var(--muted)}
+.stats{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.stats div{min-width:0;display:grid;gap:2px;align-content:start}
+.stats dt{font-size:13px;color:var(--muted);letter-spacing:.04em}
+.stats dd{margin:0;font-family:var(--display);font-size:clamp(22px,4.4vw,28px);font-weight:800;color:var(--chili);font-variant-numeric:tabular-nums;line-height:1.2}
+.stats small{font-size:13px;color:var(--muted)}
+
+/* sections */
+section{border-top:1px solid var(--line)}
+section>.wrap{padding-block:24px;display:grid;gap:12px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.08em;color:var(--cabbage)}
+section h2{font-size:clamp(21px,4vw,26px);font-weight:700}
+.prose{display:grid;gap:8px;max-width:40em}
+.prose b{color:var(--cabbage)}
+
+/* 250 box grid */
+.boxes{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:0}
+.boxes figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.boxes .big{font-family:var(--display);font-size:28px;font-weight:800;color:var(--chili);font-variant-numeric:tabular-nums}
+.boxes .big span{font-family:var(--body);font-size:15px;font-weight:500;color:var(--muted);margin-left:6px}
+.boxes .sub{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(50,1fr);gap:2px}
+.grid i{aspect-ratio:1;border-radius:2px;background:var(--leaf);border:1px solid var(--line)}
+.grid i.d{background:var(--gold);border-color:var(--gold-edge)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--leaf);border:1px solid var(--line)}
+.legend .d::before{background:var(--gold);border-color:var(--gold-edge)}
+@media (prefers-reduced-motion:no-preference){.grid i{animation:pop .45s ease both;animation-delay:calc(var(--k)*5ms)}@keyframes pop{from{transform:scale(.6)}to{transform:none}}}
+
+/* day timeline */
+.day-head{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.day-head .date{font-family:var(--display);font-size:22px;font-weight:800;color:var(--chili)}
+.day-head .who{font-size:14px;color:var(--muted)}
+
+/* carousel */
+.carousel{position:relative;display:grid;gap:6px}
+.track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:12px;padding-bottom:2px}
+.track::-webkit-scrollbar{display:none}
+@media (prefers-reduced-motion:no-preference){.track{scroll-behavior:smooth}}
+.slide{flex:0 0 86%;scroll-snap-align:start;margin:0;display:grid;gap:4px;min-width:0;align-content:start}
+@media (min-width:700px){.slide{flex-basis:62%}}
+.slide img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:12px;background:var(--leaf)}
+.slide figcaption{font-size:14px;color:var(--muted)}
+.slide figcaption b{color:var(--cabbage);font-weight:600;margin-right:6px}
+.ctrl{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.dots{display:flex;gap:6px;flex-wrap:wrap}
+.dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer}
+.dots button[aria-current="true"]{background:var(--cabbage);width:20px;border-radius:4px}
+.arrows{display:flex;gap:8px}
+.arrows button{font-family:var(--body);width:34px;height:34px;border-radius:50%;border:1.5px solid var(--cabbage);background:var(--card);color:var(--cabbage);font-size:18px;line-height:1;cursor:pointer}
+.arrows button:disabled{opacity:.35;cursor:default}
+.count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+.quote{margin:0;border-left:3px solid var(--chili);padding:2px 0 2px 14px;font-family:var(--display);font-size:17px;font-weight:500;line-height:1.6;max-width:34em}
+.quote cite{display:block;margin-top:6px;font-family:var(--body);font-style:normal;font-size:13px;color:var(--muted)}
+
+/* where it went */
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.place{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;display:grid;gap:6px;align-content:start;min-width:0}
+.place h3{font-size:20px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.place h3 span{font-family:var(--body);font-size:15px;font-weight:600;color:var(--chili);font-variant-numeric:tabular-nums}
+.rows{list-style:none;margin:0;padding:0;display:grid}
+.rows li{display:flex;justify-content:space-between;gap:12px;padding:3px 0;border-bottom:1px dotted var(--line);font-size:15px}
+.rows li:last-child{border-bottom:0}
+.rows b{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.place .note{font-size:14px;color:var(--muted)}
+
+/* thanks */
+.gifts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.gifts div{background:var(--leaf);border-radius:10px;padding:8px 12px;display:grid;gap:2px;min-width:0}
+.gifts b{font-size:16px;color:var(--cabbage)}
+.gifts span{font-size:14px;color:var(--muted)}
+.names{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:8px}
+.names h3{font-size:17px;color:var(--cabbage)}
+.names ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 6px}
+.names li{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:1px 10px;font-size:13px}
+.names .org-list li{background:var(--leaf);border-color:transparent}
+
+/* usage donut */
+.usage{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:10px}
+.usage figcaption{display:grid;gap:2px}
+.usage figcaption b{font-family:var(--display);font-size:20px;color:var(--ink)}
+.usage figcaption>span{font-size:14px;color:var(--muted)}
+.usage-body{display:grid;grid-template-columns:minmax(0,230px) 1fr;gap:18px;align-items:center}
+@media (max-width:600px){.usage-body{grid-template-columns:1fr}.usage-body svg{max-width:190px;justify-self:center}}
+.usage-body svg{width:100%;height:auto;display:block}
+.usage-body svg text{font-family:var(--body)}
+.usage-legend{display:grid;gap:8px;min-width:0}
+.usage-legend h4{margin:0;font-size:15px;display:flex;justify-content:space-between;gap:8px}
+.usage-legend h4 span{color:var(--chili);font-variant-numeric:tabular-nums}
+.usage-legend ul{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:1px}
+.usage-legend li{display:grid;grid-template-columns:12px 1fr auto;gap:8px;align-items:center;font-size:14px}
+.usage-legend li i{width:12px;height:12px;border-radius:3px}
+.usage-legend li em{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.usage-legend .cat{display:grid;gap:2px}
+.usage-legend h4{display:grid;grid-template-columns:12px 1fr auto;gap:8px;align-items:center}
+.usage-legend h4 i{width:12px;height:12px;border-radius:3px}
+.usage-legend .cat ul{padding-left:20px}
+.usage-legend .gift{display:inline-block;font-size:12px;color:var(--cabbage);background:var(--leaf);border-radius:999px;padding:0 8px;margin-left:4px;line-height:1.6}
+.usage-note{font-size:13px;color:var(--muted)}
+
+/* phone: bigger type, spacing stays tight */
+@media (max-width:600px){
+  body{font-size:18px;line-height:1.6}
+  .org{font-size:14px}
+  .eyebrow{font-size:20px}
+  .hero h1{font-size:28px}
+  .lede{font-size:17px}
+  .photo figcaption,.slide figcaption{font-size:15px}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:6px;padding:10px 12px}
+  .stats dt{font-size:13px}
+  .stats dd{font-size:22px}
+  .stats small{font-size:13px;line-height:1.4}
+  .kicker{font-size:15px}
+  section h2{font-size:24px}
+  .day-head .date{font-size:22px}
+  .day-head .who{font-size:16px}
+  .boxes .sub,.legend{font-size:15px}
+  .count{font-size:15px}
+  .arrows button{width:42px;height:42px;font-size:20px}
+  .quote{font-size:19px}
+  .rows li{font-size:17px}
+  .place .note,.usage-note,.usage figcaption>span{font-size:15px}
+  .usage figcaption b{font-size:22px}
+  .usage-legend h4{font-size:18px}
+  .usage-legend li{font-size:16px}
+  .usage-legend .gift{font-size:13px}
+  .gifts b{font-size:18px}
+  .gifts span{font-size:16px}
+  .names h3{font-size:19px}
+  .names li{font-size:16px;padding:2px 11px}
+  footer h2{font-size:24px}
+  footer small{font-size:14px}
+}
+
+footer{background:var(--cabbage);color:var(--paper)}
+footer .wrap{padding-block:20px;display:grid;gap:6px}
+footer h2{font-size:24px;font-family:var(--display)}
+footer small{opacity:.85;font-size:13px}
+@media (max-width:600px){.grid{grid-template-columns:repeat(25,1fr);gap:2px}.legend{gap:4px 14px}}
+</style>
+</head>
+<body>
+<div class="org"><div class="wrap"><span><b>원주생협 · 춘천두레생협</b> 조합원께 드리는 소식</span><span>두레생협 강원지역협의회 공동 행사</span></div></div>
+
+<header class="hero"><div class="wrap">
+  <p class="eyebrow">2026년 사랑과 협동의 김장나눔 후기</p>
+  <h1>함께 담근 김장 <em>250상자</em>, 이웃의 겨울 밥상에 잘 도착했어요</h1>
+  <p class="lede">11월 17일과 18일 이틀 동안 화천 두레축산 마을김장사업장에서 생산자와 조합원, 이웃 기관이 함께 김장을 담갔습니다. 손을 보태 주신 분, 마음을 보태 주신 분 모두 고맙습니다.</p>
+  <figure class="photo">
+    <img src="photos/hero_group.jpg" width="1400" height="735" alt="2026 사랑의 김장 나눔 현수막 앞에 김장 상자를 쌓아 두고 40여 명이 함께 웃으며 찍은 단체사진">
+    <figcaption>11월 18일, 김장을 다 담그고 다 함께</figcaption>
+  </figure>
+  <dl class="stats">
+    <div><dt>담근 김장</dt><dd>250상자</dd><small>5kg씩, 모두 1,250kg</small></div>
+    <div><dt>함께한 손</dt><dd>46명</dd><small>이틀 연인원 (17일 15명, 18일 31명)</small></div>
+    <div><dt>모인 후원금</dt><dd>504만 원</dd><small>50분의 마음, 목표의 81%</small></div>
+  </dl>
+</div></header>
+
+<section id="boxes"><div class="wrap">
+  <p class="kicker">250칸을 모두 채웠습니다</p>
+  <h2>비어 있던 칸이 김장 상자로 가득 찼어요</h2>
+  <div class="prose">
+    <p>모집할 때 2만 5천 원마다 한 칸씩 채우던 250칸 현황판을 기억하시나요? 조합원과 이웃이 보내 주신 후원금으로 <b>201칸</b>을 채웠고, 남은 49칸은 원주생협과 춘천두레생협이 함께 채워 250상자를 모두 담갔습니다.</p>
+  </div>
+  <figure class="boxes" aria-labelledby="boxTitle">
+    <figcaption>
+      <span class="big" id="boxTitle">250상자<span>1,250kg</span></span>
+      <span class="sub">원주 130상자 · 춘천 120상자</span>
+    </figcaption>
+    <div class="grid" id="grid" role="img" aria-label="250칸 중 201칸은 후원금으로, 49칸은 두 생협이 채운 김장 상자 현황판"></div>
+    <div class="legend"><span class="d">후원금으로 채운 칸 201</span><span>두 생협이 함께 채운 칸 49</span></div>
+  </figure>
+</div></section>
+
+<section id="day1"><div class="wrap">
+  <p class="kicker">첫째 날</p>
+  <div class="day-head"><span class="date">11월 17일(화)</span><span class="who">배추 손질과 절이기 · 15명</span></div>
+  <h2>배추 625통을 다듬고 절인 날</h2>
+  <div class="prose">
+    <p>강원유기농에서 보내 주신 유기농 배추 625통과 무 100개가 아침 일찍 도착했습니다. 원주생협, 춘천두레생협, 두레축산, 강원유기농, 두레생산자회에서 모인 열다섯 명이 하루 종일 배추를 가르고 다듬어 소금에 절였어요.</p>
+    <p>지난해에는 배추가 덜 절여져 애를 먹었기에, 올해는 시간이 걸리더라도 배추 속에 소금을 한 켜씩 넣는 방식으로 정성껏 절였습니다.</p>
+  </div>
+  <div class="carousel" data-carousel>
+    <div class="track" tabindex="0" aria-label="첫째 날 사진, 옆으로 넘겨 보세요">
+      <figure class="slide"><img src="photos/d1_group.jpg" width="1400" height="766" alt="2026 사랑의 김장 나눔 현수막을 들고 트럭 앞에 선 첫째 날 참여자들" loading="lazy"><figcaption><b>아침</b>첫째 날을 함께한 열다섯 명</figcaption></figure>
+      <figure class="slide"><img src="photos/d1_unload.jpg" width="1400" height="1050" alt="트럭에서 배추를 담은 노란 상자를 내리는 생산자들" loading="lazy"><figcaption><b>도착</b>강원유기농 배추를 내리는 손</figcaption></figure>
+      <figure class="slide"><img src="photos/d1_cutter.jpg" width="1400" height="1050" alt="배추 절단기 옆에 선 생산자" loading="lazy"><figcaption><b>준비</b>배추 절단기도 출동했어요</figcaption></figure>
+      <figure class="slide"><img src="photos/d1_trim.jpg" width="1400" height="1050" alt="야외 작업대에 쌓인 배추를 다듬는 모습" loading="lazy"><figcaption><b>손질</b>한 통 한 통 겉잎 떼기</figcaption></figure>
+      <figure class="slide"><img src="photos/d1_radish.jpg" width="1400" height="1050" alt="큰 대야에 둘러앉아 무를 다듬는 봉사자들" loading="lazy"><figcaption><b>무</b>둘러앉아 무 다듬기</figcaption></figure>
+      <figure class="slide"><img src="photos/d1_salt.jpg" width="1400" height="1050" alt="실내 작업장에서 배추를 절이는 봉사자들과 주황색 상자들" loading="lazy"><figcaption><b>절임</b>속까지 고르게 소금 넣기</figcaption></figure>
+      <figure class="slide"><img src="photos/d1_salt2.jpg" width="1400" height="1050" alt="작업장 안에서 배추를 상자에 차곡차곡 담는 모습" loading="lazy"><figcaption><b>저녁</b>절인 배추가 상자마다 가득</figcaption></figure>
+    </div>
+    <div class="ctrl"><div class="dots" role="group" aria-label="사진 고르기"></div><span class="count" aria-live="polite"></span><div class="arrows"><button type="button" class="prev" aria-label="이전 사진">←</button><button type="button" class="next" aria-label="다음 사진">→</button></div></div>
+  </div>
+</div></section>
+
+<section id="day2"><div class="wrap">
+  <p class="kicker">둘째 날</p>
+  <div class="day-head"><span class="date">11월 18일(수)</span><span class="who">씻고 버무리고 담기 · 31명</span></div>
+  <h2>서른한 명이 둘러서서 김장속을 버무린 날</h2>
+  <div class="prose">
+    <p>아침 9시, 절인 배추를 씻는 것으로 김장이 시작됐습니다. 올해는 김치를 받는 곳에서도 함께 손을 보탰어요. 나눔의집, 해님또래·달팽이·드림 지역아동센터 선생님들과 세 학교의 교육복지사 선생님들이 조합원, 생산자와 나란히 서서 김장속을 버무렸습니다.</p>
+    <p>점심에는 씨알살림축산이 보내 주신 고기로 삶은 수육을 갓 담근 김치와 함께 나눴습니다.</p>
+  </div>
+  <div class="carousel" data-carousel>
+    <div class="track" tabindex="0" aria-label="둘째 날 사진, 옆으로 넘겨 보세요">
+      <figure class="slide"><img src="photos/d2_wash.jpg" width="1400" height="1050" alt="큰 수조에서 절인 배추를 헹구는 봉사자들" loading="lazy"><figcaption><b>09:00</b>절인 배추 씻기부터</figcaption></figure>
+      <figure class="slide"><img src="photos/d2_wide.jpg" width="1400" height="1050" alt="넓은 작업장 곳곳에서 김장을 하는 봉사자들" loading="lazy"><figcaption><b>오전</b>작업장 가득 김장 풍경</figcaption></figure>
+      <figure class="slide"><img src="photos/d2_mix.jpg" width="1400" height="1050" alt="작업대에 둘러서서 빨간 김장속을 배추에 바르는 봉사자들" loading="lazy"><figcaption><b>버무리기</b>배추 사이사이 김장속 채우기</figcaption></figure>
+      <figure class="slide"><img src="photos/d2_mix2.jpg" width="1400" height="1050" alt="고무장갑을 끼고 김장속을 버무리는 손들" loading="lazy"><figcaption><b>버무리기</b>처음 해 보는 분도 옆에서 배우며</figcaption></figure>
+      <figure class="slide"><img src="photos/d2_pack.jpg" width="1400" height="1050" alt="김장 상자를 앞에 두고 포장하는 봉사자들" loading="lazy"><figcaption><b>포장</b>5kg씩 달아 상자에 담기</figcaption></figure>
+      <figure class="slide"><img src="photos/d2_boxes.jpg" width="1400" height="1050" alt="사랑의 김장나눔 상자를 쌓아 두고 웃는 봉사자들" loading="lazy"><figcaption><b>완성</b>차곡차곡 쌓인 사랑의 김장나눔 상자</figcaption></figure>
+      <figure class="slide"><img src="photos/d2_suyuk.jpg" width="1050" height="1400" alt="접시에 담긴 수육과 김치" loading="lazy"><figcaption><b>점심</b>갓 담근 김치에 수육 한 점</figcaption></figure>
+      <figure class="slide"><img src="photos/d2_lunch.jpg" width="1400" height="1050" alt="식탁에 둘러앉아 점심을 먹으며 엄지를 드는 참여자들" loading="lazy"><figcaption><b>점심</b>수고한 손들이 둘러앉은 밥상</figcaption></figure>
+    </div>
+    <div class="ctrl"><div class="dots" role="group" aria-label="사진 고르기"></div><span class="count" aria-live="polite"></span><div class="arrows"><button type="button" class="prev" aria-label="이전 사진">←</button><button type="button" class="next" aria-label="다음 사진">→</button></div></div>
+  </div>
+  <blockquote class="quote">받는 사람과 주는 사람이 따로 없이, 같은 작업대에 서서 같은 김치를 담갔습니다.<cite>올해 김장나눔을 마치며</cite></blockquote>
+</div></section>
+
+<section id="share"><div class="wrap">
+  <p class="kicker">나눔 전달</p>
+  <h2>김장 상자가 춘천과 원주로 떠났어요</h2>
+  <div class="carousel" data-carousel>
+    <div class="track" tabindex="0" aria-label="나눔 전달 사진, 옆으로 넘겨 보세요">
+      <figure class="slide"><img src="photos/sh_boxes.jpg" width="1400" height="1050" alt="김장 상자를 하나씩 들고 나란히 선 사람들" loading="lazy"><figcaption><b>16:00</b>한 상자씩 품에 안고</figcaption></figure>
+      <figure class="slide"><img src="photos/sh_hand.jpg" width="1400" height="1050" alt="천막 아래에서 김장 상자를 건네는 모습" loading="lazy"><figcaption><b>전달</b>나눔처에 김장 건네기</figcaption></figure>
+      <figure class="slide"><img src="photos/sh_hand2.jpg" width="1400" height="1050" alt="야외 테이블에서 김장 상자를 확인하고 나누는 모습" loading="lazy"><figcaption><b>전달</b>수량을 확인하며 차례로</figcaption></figure>
+      <figure class="slide"><img src="photos/sh_truck.jpg" width="1050" height="1400" alt="냉장 탑차 안에 가지런히 실린 김장 상자" loading="lazy"><figcaption><b>출발</b>냉장차에 실려 이웃에게</figcaption></figure>
+    </div>
+    <div class="ctrl"><div class="dots" role="group" aria-label="사진 고르기"></div><span class="count" aria-live="polite"></span><div class="arrows"><button type="button" class="prev" aria-label="이전 사진">←</button><button type="button" class="next" aria-label="다음 사진">→</button></div></div>
+  </div>
+  <div class="split">
+    <div class="place">
+      <h3>춘천<span>120상자</span></h3>
+      <ul class="rows">
+        <li>학교 6곳 (교육복지 가정)<b>35</b></li>
+        <li>지역아동센터 6곳<b>26</b></li>
+        <li>아동·가정 보호시설 3곳<b>11</b></li>
+        <li>장애인 시설·가정 4곳<b>24</b></li>
+        <li>춘천지역자활센터<b>15</b></li>
+        <li>조합원 9가정<b>9</b></li>
+      </ul>
+    </div>
+    <div class="place">
+      <h3>원주<span>130상자</span></h3>
+      <p class="note">원주생협이 기존 지원처와 새로 찾은 이웃에게 전했습니다. 나눔처별 소식은 원주생협에서 따로 전해 드릴게요.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="thanks"><div class="wrap">
+  <p class="kicker">고맙습니다</p>
+  <h2>마음과 손을 보태 주신 모든 분께</h2>
+  <div class="prose">
+    <p>조합원과 지역 단체, 생산자 50분이 모두 <b>504만 원</b>을 보내 주셨습니다. 생산자들은 배추와 고기, 행사장을 선뜻 내어 주셨어요. 후원금과 현물이 어디에 쓰였는지 그래프로 보여 드릴게요.</p>
+  </div>
+  <figure class="usage" aria-labelledby="usageTitle">
+    <figcaption id="usageTitle"><b>이렇게 쓰였어요</b><span>김장 250상자에 들어간 모든 것을 100%로 본 비율이에요. 초록 꼬리표는 생산자들이 후원해 주신 거예요.</span></figcaption>
+    <div class="usage-body">
+      <svg id="donut" viewBox="0 0 320 320" role="img" aria-label="김장 250상자에 들어간 것의 비율 원형 그래프"></svg>
+      <div id="usageLegend" class="usage-legend"></div>
+    </div>
+    <p class="usage-note">쌈장과 통증파스는 금액으로 환산할 수 없는 마음으로 받았어요.</p>
+  </figure>
+  <div class="gifts">
+    <div><b>강원유기농</b><span>유기농 배추 625통, 무 100개</span></div>
+    <div><b>씨알살림축산</b><span>수육용 돼지고기 10kg</span></div>
+    <div><b>두레축산</b><span>마을김장사업장 공간</span></div>
+    <div><b>원주생협 식생활강사단</b><span>쌈장 30개</span></div>
+    <div><b>향기놀이터</b><span>봉사자를 위한 통증파스 25개</span></div>
+  </div>
+  <div class="names">
+    <h3>함께하신 분들 (가나다순)</h3>
+    <ul>
+      <li>강봉덕</li><li>강영화</li><li>구경모</li><li>권영은</li><li>길광섭</li><li>김민석</li><li>김민희</li><li>김소라</li><li>김숙희</li><li>김애경</li><li>김영관</li><li>김자연</li><li>김찬용</li><li>김현숙</li><li>김호연</li><li>김홍영</li><li>김효철 내외</li><li>문경민</li><li>문병채</li><li>박수진</li><li>박종혁</li><li>박향옥</li><li>박혜순</li><li>배인균</li><li>서광석</li><li>성미란</li><li>안기호</li><li>안명순</li><li>안주현</li><li>안효진</li><li>양종천</li><li>엄영철</li><li>엄지상</li><li>유미정</li><li>유소은</li><li>유수빈</li><li>유승호</li><li>유정배</li><li>유정종</li><li>윤은주</li><li>윤형진</li><li>윤효주</li><li>이강익</li><li>이경희</li><li>이민아</li><li>이소라</li><li>이영임</li><li>이완용</li><li>이재욱</li><li>이정미</li><li>이춘실</li><li>이현주</li><li>이호원</li><li>임보라</li><li>전미영</li><li>정경숙</li><li>정연진</li><li>정영준</li><li>지성희</li><li>천혜정</li><li>최돈옥</li><li>최윤숙</li><li>최은숙</li><li>최은예</li><li>최현희</li><li>허남현</li><li>허준구</li><li>홍은영</li><li>홍주리</li>
+    </ul>
+    <h3>함께한 기관·단체 (가나다순)</h3>
+    <ul class="org-list">
+      <li>강원생명과학고등학교</li><li>강원유기농</li><li>강원중앙양봉</li><li>공감연대강원</li><li>달팽이지역아동센터</li><li>대명종합관리</li><li>동춘천현대서비스</li><li>두레강원지역생산자회</li><li>두레생산자회</li><li>두레생협연합회 강원지역협의회</li><li>두레축산</li><li>두레한강</li><li>드림지역아동센터</li><li>사회적협동조합 교육과나눔</li><li>씨알살림축산</li><li>어울림 문화공연단</li><li>원주나눔의집</li><li>원주생명농업</li><li>원주생협</li><li>원주생협 식생활강사단</li><li>원주한살림</li><li>춘천기계공업고등학교</li><li>춘천나눔의집</li><li>춘천두레생협</li><li>춘천사회적경제네트워크</li><li>춘천시민연대</li><li>춘천시사회적경제지원센터</li><li>한살림춘천</li><li>한샘고등학교</li><li>해님또래지역아동센터</li><li>향기놀이터</li><li>화천두레</li>
+    </ul>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <h2>내년 겨울에도 함께 김장해요</h2>
+  <p>배추를 기른 손과 김치를 먹는 손이 한자리에 모이는 날, 2027년에도 기다리겠습니다.</p>
+  <small>주관 원주생협 · 춘천두레생협 · 두레축산 · 강원유기농 · 원주생명농업 | 두레생협 강원지역협의회</small>
+</div></footer>
+
+<script>
+(function(){
+  var g=document.getElementById('grid'),h='';
+  for(var k=0;k<250;k++){h+='<i'+(k<201?' class="d"':'')+' style="--k:'+k+'"></i>';}
+  g.innerHTML=h;
+
+  var C=[{k:'주재료',c:'--cabbage'},{k:'식사·간식',c:'--c-meal'},{k:'부자재',c:'--c-pack'},{k:'행사 운영',c:'--c-ops'}];
+  var U=[{k:'주재료',n:'배추·무',g:'강원유기농 후원',v:2972500,o:1},{k:'주재료',n:'김치속',v:1600000,o:.68},{k:'주재료',n:'절임 소금',v:300000,o:.42},
+    {k:'식사·간식',n:'식대 (이틀)',v:526000,o:1},{k:'식사·간식',n:'수육용 고기',g:'씨알살림축산 후원',v:339000,o:.7},{k:'식사·간식',n:'간식·음료',v:112418,o:.45},
+    {k:'부자재',n:'김장비닐·상자·라벨·케이블타이',v:482200,o:1},{k:'부자재',n:'위생모자·장갑·장화 등',v:147980,o:.6},
+    {k:'행사 운영',n:'행사장',g:'두레축산 후원',v:400000,o:1},{k:'행사 운영',n:'현수막',v:16000,o:.45}];
+  var T=U.reduce(function(a,r){return a+r.v},0),pc=function(v){var x=v/T*100;return (x<1?x.toFixed(1):Math.round(x))+'%'},col=function(k){return C.filter(function(c){return c.k===k})[0].c};
+  var cx=160,cy=160,R=150,r0=92,acc=0,svg='',P=function(f,rad){return [cx+rad*Math.sin(2*Math.PI*f),cy-rad*Math.cos(2*Math.PI*f)]};
+  U.forEach(function(r){var a0=acc/T;acc+=r.v;var a1=acc/T,lg=a1-a0>.5?1:0,p1=P(a0,R),p2=P(a1,R),p3=P(a1,r0),p4=P(a0,r0);
+    svg+='<path d="M'+p1+' A'+R+','+R+' 0 '+lg+' 1 '+p2+' L'+p3+' A'+r0+','+r0+' 0 '+lg+' 0 '+p4+' Z" fill="var('+col(r.k)+')" fill-opacity="'+r.o+'" stroke="var(--card)" stroke-width="1.5"><title>'+r.k+' · '+r.n+(r.g?' ('+r.g+')':'')+': '+pc(r.v)+'</title></path>';});
+  svg+='<text x="160" y="150" text-anchor="middle" font-size="15" fill="var(--muted)">김장</text><text x="160" y="184" text-anchor="middle" font-size="30" font-weight="700" fill="var(--chili)">250상자</text>';
+  document.getElementById('donut').innerHTML=svg;
+  var L='';C.forEach(function(c){var g=U.filter(function(r){return r.k===c.k}),t=g.reduce(function(a,r){return a+r.v},0);
+    L+='<div class="cat"><h4><i style="background:var('+c.c+')"></i>'+c.k+'<span>'+pc(t)+'</span></h4><ul>';
+    g.forEach(function(r){L+='<li><i style="background:var('+c.c+');opacity:'+r.o+'"></i><span>'+r.n+(r.g?' <small class="gift">'+r.g+'</small>':'')+'</span><em>'+pc(r.v)+'</em></li>'});L+='</ul></div>';});
+  document.getElementById('usageLegend').innerHTML=L;
+
+  document.querySelectorAll('[data-carousel]').forEach(function(c){
+    var t=c.querySelector('.track'),s=[].slice.call(t.querySelectorAll('.slide')),dots=c.querySelector('.dots'),cnt=c.querySelector('.count'),pv=c.querySelector('.prev'),nx=c.querySelector('.next');
+    s.forEach(function(_,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(i+1)+'번째 사진');b.addEventListener('click',function(){go(i)});dots.appendChild(b);});
+    var db=[].slice.call(dots.children),cur=0;
+    function go(i){i=Math.max(0,Math.min(s.length-1,i));t.scrollTo({left:s[i].offsetLeft-t.offsetLeft});}
+    function upd(){var x=t.scrollLeft,best=0,bd=1e9;s.forEach(function(el,i){var d=Math.abs(el.offsetLeft-t.offsetLeft-x);if(d<bd){bd=d;best=i;}});
+      if(t.scrollLeft+t.clientWidth>=t.scrollWidth-4)best=s.length-1;
+      cur=best;db.forEach(function(b,i){b.setAttribute('aria-current',i===cur?'true':'false')});cnt.textContent=(cur+1)+' / '+s.length;pv.disabled=cur===0;nx.disabled=cur===s.length-1;}
+    pv.addEventListener('click',function(){go(cur-1)});nx.addEventListener('click',function(){go(cur+1)});
+    t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}});
+    var tm;t.addEventListener('scroll',function(){clearTimeout(tm);tm=setTimeout(upd,60)},{passive:true});
+    window.addEventListener('resize',upd);upd();
+  });
+})();
+</script>
+</body>
+</html>
